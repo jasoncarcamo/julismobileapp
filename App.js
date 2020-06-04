@@ -33,6 +33,6 @@ export default class App extends React.Component{
                         }}></Stack.Screen>
                 </Stack.Navigator>
             </NavigationContainer>
-        )
-    }
+        );
+    };
 };
