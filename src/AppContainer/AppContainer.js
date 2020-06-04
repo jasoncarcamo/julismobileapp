@@ -43,7 +43,7 @@ export default class AppContainer extends React.Component{
 
                         });
                 };
-            })
+            });
     }
 
     registerForPushNotificationsAsync = async () => {
