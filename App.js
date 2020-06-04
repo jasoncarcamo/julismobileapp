@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-<<<<<<< HEAD
 import { Platform, StyleSheet, Text, View, Vibration } from 'react-native';
 import AppContainer from "./src/AppContainer/AppContainer";
 import {NavigationContainer} from "@react-navigation/native";
@@ -11,9 +10,8 @@ import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 
 const Stack = createStackNavigator();
-=======
+
 import {StyleSheet, Text, View, Dimensions } from 'react-native';
->>>>>>> a31359370235e4a7ba48e1cfc138b8445e49f15c
 
 export default class App extends React.Component{
     constructor(props){
