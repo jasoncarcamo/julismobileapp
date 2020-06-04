@@ -45,3 +45,19 @@ const DemoStyle = StyleSheet.create({
         textAlign: "center"
     }
 })
+=======
+            <NavigationContainer
+                >
+                <Stack.Navigator>
+                    <Stack.Screen
+                        name="App"
+                        component={AppContainer}
+                        options={{
+                            headerShown: false
+                        }}></Stack.Screen>
+                </Stack.Navigator>
+            </NavigationContainer>
+        );
+    };
+};
+>>>>>>> hotfix
