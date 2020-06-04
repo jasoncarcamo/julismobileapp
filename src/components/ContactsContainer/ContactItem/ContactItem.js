@@ -7,7 +7,7 @@ export default class ContactItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            contact: {},
+            contact: this.props.route.params.contact,
             confirming: false,
             confirmSuccess: false
         };
@@ -16,6 +16,7 @@ export default class ContactItem extends React.Component{
     static contextType = AppContext;
 
     componentDidMount(){
+        console.log(this.props.route.params.contact)
         this.setState({
             contact: this.props.route.params.contact
         })
@@ -110,32 +111,32 @@ export default class ContactItem extends React.Component{
     }
 
     openMobileNumber = ()=>{
-        Linking.openURL(`tel://${this.state.contact.mobile_number}`);
+        Linking.openURL(`tel://${this.props.route.params.contact.mobile_number}`);
     };
 
     render(){
-        
+        console.log(this.props)
         return(
             <View 
                 style={ItemStyle.container}>
 
                 <Text
-                    style={ItemStyle.textStyle}>Name: {this.state.contact.name}</Text>
+                    style={ItemStyle.textStyle}>Name: {this.props.route.params.contact.name}</Text>
 
                 <Text
-                    style={ItemStyle.textStyle}>Mobile number: {this.state.contact.mobile_number}</Text>
+                    style={ItemStyle.textStyle}>Mobile number: {this.props.route.params.contact.mobile_number}</Text>
 
                 <Text
-                    style={ItemStyle.textStyle}>Email: {this.state.contact.email}</Text>
+                    style={ItemStyle.textStyle}>Email: {this.props.route.params.contact.email}</Text>
 
                 <Text
-                    style={ItemStyle.lastText}>Message: {this.state.contact.message}</Text>
+                    style={ItemStyle.lastText}>Message: {this.props.route.params.contact.message}</Text>
 
-                {this.state.confirming && !this.state.confirmSuccess ? <Text style={ItemStyle.loading}>Loading</Text> : <View></View>}
+                {this.state.confirming && !this.state.confirmSuccess ? <Text style={ItemStyle.loading}>Loading</Text> : <Text></Text>}
 
-                {!this.state.confirming && !this.state.confirmSuccess ? this.renderOptions() : <View></View>}
+                {!this.state.confirming && !this.state.confirmSuccess ? this.renderOptions() : <Text></Text>}
 
-                {!this.state.confirming && this.state.confirmSuccess ? this.renderConfirmSuccess() : <View></View>}
+                {!this.state.confirming && this.state.confirmSuccess ? this.renderConfirmSuccess() : <Text></Text>}
 
             </View>
         )

@@ -1,9 +1,8 @@
 import React from "react";
 import {View, Button, Text, StyleSheet} from "react-native";
-import AdminToken from "../../../../services/AdminToken/AdminToken";
 import AppContext from "../../../../services/contexts/AppContext/AppContext";
 
-export default class ContactItem extends React.Component{
+export default class BookDisplay extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -15,19 +14,12 @@ export default class ContactItem extends React.Component{
     static contextType = AppContext;
 
     handleView = () => {
-        AdminToken.getToken()
-            .then( token => {
-
-                this.setState({
-                    loading: true
-                });
-
-                this.setState({
-                    loading: false
-                });
-                
-                return this.props.navigation.navigate("Book item", { book: this.props.book});
-            })
+        this.props.navigation.navigate("Book Main", { 
+            screen: "Book item", 
+            params: {
+                book: this.props.book
+            }
+        });
     }
 
     renderTime = (date)=>{

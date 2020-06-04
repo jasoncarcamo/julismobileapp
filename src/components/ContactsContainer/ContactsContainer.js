@@ -8,27 +8,29 @@ import ContactsNotification from "./ContactsNotification/ContactsNotification";
 const Stack = createStackNavigator();
 
 export default class ContactsContainer extends React.Component{
-    renderMainScreens = ()=>{
+    renderMainScreens = () => {
         return (
             <Stack.Navigator
-                initialRouteName="Contacts"
-                screenOptions={{
-                    headerRight: ()=> <MenuIcon navigation={this.props.navigation}/>
-                }}>
+                initialRouteName="Contacts">
                 <Stack.Screen
                     name="Contacts"
-                    component={Contacts}></Stack.Screen>
+                    component={Contacts}
+                    options={{
+                        headerRight: ()=> <MenuIcon navigation={this.props.navigation}/>
+                    }}></Stack.Screen>
 
                 <Stack.Screen
                     name="Contact item"
-                    component={ContactItem}></Stack.Screen>
+                    component={ContactItem}
+                    options={{
+                        headerShown: false
+                    }}></Stack.Screen>
             </Stack.Navigator>
         )
     }
     render(){
         return (
-            <Stack.Navigator
-                initialRouteName="Contact Main">
+            <Stack.Navigator>
                 <Stack.Screen
                     name="Contact Main"
                     component={this.renderMainScreens}

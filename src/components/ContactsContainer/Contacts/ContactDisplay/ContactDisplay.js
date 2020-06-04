@@ -1,10 +1,8 @@
 import React from "react";
 import {View, Button, Text, StyleSheet} from "react-native";
 import AppContext from "../../../../services/contexts/AppContext/AppContext";
-import AdminToken from "../../../../services/AdminToken/AdminToken";
-import { interpolate } from "react-native-reanimated";
 
-export default class ContactItem extends React.Component{
+class ContactDisplay extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -16,20 +14,12 @@ export default class ContactItem extends React.Component{
     static contextType = AppContext;
 
     handleView = () => {
-        AdminToken.getToken()
-            .then( token => {
-
-                this.setState({
-                    loading: true
-                });
-
-                this.setState({
-                    loading: false
-                });
-
-                return this.props.navigation.navigate("Contact item", { contact: this.props.contact});
-
-            })
+        this.props.navigation.navigate("Contact Main", {
+            screen: "Contact item",
+            params: {
+                contact: this.props.contact
+            }
+        });
     }
 
     renderTime = (date)=>{
@@ -99,4 +89,6 @@ const DisplayItem = StyleSheet.create({
         marginVertical: 15,
         textAlign: "center"
     }
-})
+});
+
+export default ContactDisplay;

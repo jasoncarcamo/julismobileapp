@@ -47,7 +47,8 @@ export default class NavMenu extends React.Component{
     render(){
         
         return (
-            <Drawer.Navigator>
+            <Drawer.Navigator
+                initialRouteName="Log in">
                     {this.context.isLoggedIn ? this.renderLoggedInOptions() : this.renderLogIn()}
             </Drawer.Navigator>
         )

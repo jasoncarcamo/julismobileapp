@@ -162,6 +162,8 @@ export class AppProvider extends React.Component{
                     })
                     .then(([bookingsData, contactsData]) => {
                         
+                        this.props.refresh();
+
                         return this.setState({
                             bookings: bookingsData.bookings,
                             contacts: contactsData.contacts

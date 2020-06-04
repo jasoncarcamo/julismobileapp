@@ -38,7 +38,7 @@ export default class Contacts extends React.Component{
     renderItems = (contacts) => {
         let contactItems = contacts;
 
-        contactItems = contactItems.filter((book, index)=> book.confirmed === true);
+        contactItems = contactItems.filter((contact, index)=> contact.confirmed === true);
 
         if(contactItems.length === 0){
             return (
@@ -47,7 +47,7 @@ export default class Contacts extends React.Component{
             );
         };
 
-        contactItems = contactItems.map((book, index) => book.confirmed === true ? <ContactDisplay key={index} contact={book} navigation={this.props.navigation}></ContactDisplay> : <View></View>);
+        contactItems = contactItems.map((contact, index) => contact.confirmed === true ? <ContactDisplay key={index} contact={book} navigation={this.props.navigation}></ContactDisplay> : <View></View>);
 
         return contactItems;
     }
@@ -67,6 +67,7 @@ export default class Contacts extends React.Component{
     }
 
     render(){
+        console.log(this.props)
         return (
             <ScrollView>
                 

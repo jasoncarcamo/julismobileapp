@@ -9,21 +9,25 @@ const Stack = createStackNavigator();
 
 
 
-export default class ContactsContainer extends React.Component{
+export default class BookingsContainer extends React.Component{
 
     renderMainScreens = ()=>{
         return (
             <Stack.Navigator
-                screenOptions={{
-                    headerRight: ()=> <MenuIcon navigation={this.props.navigation}/>
-                }}>
+                initialRouteName="Bookings">
                 <Stack.Screen
                     name="Bookings"
-                    component={Bookings}></Stack.Screen>
+                    component={Bookings}
+                    options={{
+                        headerRight: ()=> <MenuIcon navigation={this.props.navigation}/>
+                    }}></Stack.Screen>
 
                 <Stack.Screen
                     name="Book item"
-                    component={BookItem}></Stack.Screen>
+                    component={BookItem}
+                    options={{
+                        headerShown: false
+                    }}></Stack.Screen>
             </Stack.Navigator>
         )
     };
@@ -31,7 +35,8 @@ export default class ContactsContainer extends React.Component{
     render(){
 
         return (
-            <Stack.Navigator>
+            <Stack.Navigator
+                initialRouteName="Book Main">
                 <Stack.Screen
                     name="Book Main"
                     options={{

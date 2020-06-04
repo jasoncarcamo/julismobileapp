@@ -47,7 +47,7 @@ export default class Login extends React.Component{
                 return res.json();
             })
             .then( resData => {
-
+                
                 AdminToken.saveToken(resData.token)
                     .then( savedToken => {
                         this.context.loginAdmin()
@@ -64,7 +64,7 @@ export default class Login extends React.Component{
     }
 
     render(){
-
+        
         return (
             <ScrollView>
 
